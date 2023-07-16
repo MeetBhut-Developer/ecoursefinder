@@ -1,0 +1,4 @@
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'super@admin$meet%2232';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'super@admin$meet%2232';
+
+Get ready everyone. We are currently working on a super awesome website.
