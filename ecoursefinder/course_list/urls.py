@@ -6,7 +6,7 @@ urlpatterns = [
     # Your existing URL patterns
     path('',views.index,name='index'),
     path('course/',views.course_list,name='course'),
-    path('home/',views.under_construction,name='home'),
+    path('home/',views.index,name='home'),
     path('about/',views.under_construction,name='about'),
     path('teacher/',views.under_construction,name='teacher'),
     path('blog/',views.under_construction,name='blog'),
