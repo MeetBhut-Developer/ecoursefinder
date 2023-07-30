@@ -142,7 +142,7 @@
                         <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">About Us</h5>
                         <h1>Innovative Way To Learn</h1>
                     </div>
-                    <p class="ellipsis expand" onclick="$(this).toggleClass('ellipsis expand')">Aliquyam accusam clita nonumy ipsum sit sea clita ipsum clita, ipsum dolores amet voluptua duo dolores et sit ipsum rebum, sadipscing et erat eirmod diam kasd labore clita est. Diam sanctus gubergren sit rebum clita amet, sea est sea vero sed et. Sadipscing labore tempor at sit dolor clita consetetur diam. Diam ut diam tempor no et, lorem dolore invidunt no nonumy stet ea labore, dolor justo et sit gubergren diam sed sed no ipsum. Sit tempor ut nonumy elitr dolores justo aliquyam ipsum stet</p>
+                    <p class="ellipsis expand" onclick="$(this).toggleClass('ellipsis expand')">Welcome to our cutting-edge educational platform that takes learning to a whole new level. We believe that education should be an exciting and enriching experience that empowers individuals to unleash their true potential. With our innovative approach, we have transformed the traditional learning paradigm into an interactive and engaging journey of knowledge discovery</p>
                     <a href="" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">Learn More</a>
                 </div>
             </div>
@@ -166,45 +166,46 @@
             <div class="row">
                 {% for item in page_obj %}
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="rounded overflow-hidden mb-2">
-                        <img class="img-fluid" src="{{ item.img_url }}" alt="">
-                        <div class="bg-secondary p-4">
-                            <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>{{ item.university_name|truncate_string:"22,19" }}</small>
-                                <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>{{ item.start_date }}</small>
-                            </div>
-                            <a class="h5" href="{{ item.course_url }}">{{ item.course_name }}</a>
-                            <div class="text">{{ item.course_description }}</div>
-                            <span class="read-more" onclick="$('.text').toggleClass('expanded');">Read more</span>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>{{ item.rating_count }}<small> ({{ item.review_count }})</small></h6>
-                                    <h5 class="m-0">{{ item.price }}</h5>
-                                </div>
-                            </div>
+                  <div class="rounded overflow-hidden mb-2">
+                    <img class="img-fluid" src="{{ item.img_url }}" alt="">
+                    <div class="bg-secondary p-4">
+                      <div class="d-flex justify-content-between mb-3">
+                        <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>{{ item.university_name|truncate_string:"22,19" }}</small>
+                        <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>{{ item.start_date }}</small>
+                      </div>
+                      <a class="h5" href="{{ item.course_url }}" target="_blank">{{ item.course_name }}</a>
+                      <div class="text">{{ item.course_description }}</div>
+                      <div class="border-top mt-4 pt-4">
+                        <div class="d-flex justify-content-between">
+                          <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>{{ item.rating_count }}<small> ({{ item.review_count }})</small></h6>
+                          <h5 class="m-0">{{ item.price }}</h5>
                         </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
                 {% endfor %}
-            </div>
+              </div>              
             <!-- Pagination -->
             <div class="pagination d-flex justify-content-center mt-4">
                 <span class="step-links">
                     {% if page_obj.has_previous %}
-                        <a class="btn btn-primary btn-sm d-sm-inline-block mr-sm-2 mb-2 mb-sm-0" href="?page=1">&laquo; First</a>
-                        <a class="btn btn-primary btn-sm d-sm-inline-block mr-sm-2" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                        <a class="btn btn-primary btn-sm d-sm-inline-block mr-sm-2 mb-2 mb-sm-0" href="?page=1">&laquo;</a>
+                        <a class="btn btn-primary btn-sm d-sm-inline-block mr-sm-2" href="?page={{ page_obj.previous_page_number }}">&lt;</a>
                     {% endif %}
-            
-                    <span class="current-page d-inline-block mx-2 mx-sm-4">
-                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                    </span>
-            
+
+                    {% for i in page_obj.paginator.page_range %}
+                        {% if i == page_obj.number %}
+                            <span class="current-page d-inline-block mx-2 mx-sm-4">Page {{ i }} of {{ page_obj.paginator.num_pages }}</span>
+                        {% endif %}
+                    {% endfor %}
+
                     {% if page_obj.has_next %}
-                        <a class="btn btn-primary btn-sm d-sm-inline-block mr-sm-2" href="?page={{ page_obj.next_page_number }}">Next</a>
-                        <a class="btn btn-primary btn-sm d-sm-inline-block" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+                        <a class="btn btn-primary btn-sm d-sm-inline-block mr-sm-2" href="?page={{ page_obj.next_page_number }}">&gt;</a>
+                        <a class="btn btn-primary btn-sm d-sm-inline-block" href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a>
                     {% endif %}
                 </span>
-            </div>            
+            </div>
         </div>
     </div>
     <!-- Courses End -->
@@ -244,9 +245,9 @@
                                 <div class="form-group">
                                     <select class="custom-select border-0 px-4" style="height: 47px;">
                                         <option selected>Select a course</option>
-                                        <option value="1">Course 1</option>
-                                        <option value="2">Course 1</option>
-                                        <option value="3">Course 1</option>
+                                        <option value="1">Data Science</option>
+                                        <option value="2">Cyber Security</option>
+                                        <option value="3">Web Development</option>
                                     </select>
                                 </div>
                                 <div>
@@ -391,7 +392,7 @@
                     <div class="blog-item position-relative overflow-hidden rounded mb-2">
                         <img class="img-fluid" src="{% static 'img/blog-1.jpg' %}" alt="">
                         <a class="blog-overlay text-decoration-none" href="">
-                            <h5 class="text-white mb-3">Lorem elitr magna stet eirmod labore amet labore clita at ut clita</h5>
+                            <h5 class="text-white mb-3">Access engaging online courses from anywhere with internet connectivity.</h5>
                             <p class="text-primary m-0">Jan 01, 2023</p>
                         </a>
                     </div>
@@ -400,7 +401,7 @@
                     <div class="blog-item position-relative overflow-hidden rounded mb-2">
                         <img class="img-fluid" src="{% static 'img/blog-2.jpg' %}" alt="">
                         <a class="blog-overlay text-decoration-none" href="">
-                            <h5 class="text-white mb-3">Lorem elitr magna stet eirmod labore amet labore clita at ut clita</h5>
+                            <h5 class="text-white mb-3">Immerse yourself in interactive lessons, quizzes, and multimedia resources.</h5>
                             <p class="text-primary m-0">Feb 01, 2023</p>
                         </a>
                     </div>
@@ -409,7 +410,7 @@
                     <div class="blog-item position-relative overflow-hidden rounded mb-2">
                         <img class="img-fluid" src="{% static 'img/blog-3.jpg' %}" alt="">
                         <a class="blog-overlay text-decoration-none" href="">
-                            <h5 class="text-white mb-3">Lorem elitr magna stet eirmod labore amet labore clita at ut clita</h5>
+                            <h5 class="text-white mb-3">Learn at your pace with 24/7 availability and fit education into your busy life.</h5>
                             <p class="text-primary m-0">May 22, 2023</p>
                         </a>
                     </div>

@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-kx(7ng)&@u2%l^c%-s^+5hm9$y!v*73crdnqm6)@k5y9i25%@j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','b562-2406-b400-d4-85ae-f5de-8aaa-430e-ca24.ngrok-free.app','127.0.0.1']
+ALLOWED_HOSTS = ['localhost','11cc-2406-b400-d4-89a7-4b3d-8876-53cc-e813.ngrok-free.app','127.0.0.1']
 
 
 
@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'course_list'
+    'course_list',
+    'custom_middleware',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'custom_middleware.custom_headers_middleware.CustomHeadersMiddleware'
 ]
 
 ROOT_URLCONF = 'settings.urls'

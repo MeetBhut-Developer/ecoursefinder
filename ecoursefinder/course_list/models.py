@@ -11,6 +11,8 @@ class Master_Courses(models.Model):
     review_count=models.CharField(max_length=50)
     price=models.CharField(max_length=5)
     start_date=models.CharField(max_length=10)
+    category=models.TextField()
 
     class Meta:
         db_table='master_courses_table'
+

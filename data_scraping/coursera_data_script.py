@@ -71,12 +71,12 @@ for i in range(1,85):
         d_list=[WEB_ID,WEB_SOURCE,cat,sub_cat,course_name,price,start_date,desc,university,img,course_url,review,rating,c_type]
         print(d_list)
         # print(d_list)
-        try:
-            cursor.execute(f'INSERT INTO master_courses_table values (default,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);',d_list)
-            conn.commit()
-            count+=1
-            print('Total Inserted:',count)
-        except:print('Duplicate Data!!!')
+        # try:
+        #     cursor.execute(f'INSERT INTO master_courses_table values (default,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);',d_list)
+        #     conn.commit()
+        #     count+=1
+        #     print('Total Inserted:',count)
+        # except:print('Duplicate Data!!!')
 
 conn.close()
     
