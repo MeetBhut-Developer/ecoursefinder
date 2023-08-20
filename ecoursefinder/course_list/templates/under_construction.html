@@ -21,12 +21,35 @@
         <link rel="stylesheet" type="text/css" href="{% static 'assets/css/plugins.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'assets/css/main.css' %}">
 
+        <style>
+            /* Style for the countdown container */
+            #countdown-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20px;
+            }
+    
+            /* Style for each countdown element box */
+            .countdown-box {
+                font-family: Arial, sans-serif;
+                font-size: 36px; /* Increase the font size as desired */
+                font-weight: bold; /* Add bold font weight for emphasis */
+                color: #fff; /* Set the text color to white */
+                text-align: center;
+                padding: 5px; /* Increase the padding for larger boxes */
+                background-color: #44425a; /* Set the background color to black */
+                border-radius: 10px;
+                margin: 5px; /* Increase the margin for more spacing between boxes */
+                width: 90px; /* Increase the width for larger boxes */
+            }
+        </style>
+
 
     </head>
 
 
-    <body>
-    
+    <body>    
        
         <!-- PRELOADER --> class="preloader"
         <!-- PRELOADER  --> 
@@ -67,6 +90,41 @@
                         
                     </div>
                     <!-- /ANIMATION CONTAINER -->
+                    <!-- Add the countdown element here -->
+                    <div id="countdown-container">
+                        <div class="countdown-box" id="days">0d</div>
+                        <div class="countdown-box" id="hours">0h</div>
+                        <div class="countdown-box" id="minutes">0m</div>
+                        <div class="countdown-box" id="seconds" style="color: #ff6600;">0s</div>
+                    </div>
+                    <!-- JAVASCRIPTS -->
+                    <script type="text/javascript" src="{% static 'path/to/countdown.js' %}"></script>
+                    <script type="text/javascript">
+                        // Add your countdown logic here
+                        // This is just a basic example to set up a countdown for demonstration purposes
+                        var countdownDate = new Date("2023-09-03T00:00:00").getTime();
+                
+                        var x = setInterval(function() {
+                            var now = new Date().getTime();
+                            var distance = countdownDate - now;
+                            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                            
+                            // Update each countdown element box
+                            document.getElementById("days").innerHTML = days + "d";
+                            document.getElementById("hours").innerHTML = hours + "h";
+                            document.getElementById("minutes").innerHTML = minutes + "m";
+                            document.getElementById("seconds").innerHTML = seconds + "s";
+                            
+                            if (distance < 0) {
+                                clearInterval(x);
+                                document.getElementById("countdown-container").innerHTML = "EXPIRED";
+                            }
+                        }, 1000);
+                    </script>
+                    <!-- /JAVASCRIPTS -->
                     
                     
                     <!-- ANIMATION CONTAINER -->
@@ -79,12 +137,11 @@
                     
                     
                     <!-- ANIMATION CONTAINER -->
-                    <div class="animation-container animation-fade-left" data-animation-delay="600"> 
-                       
+                    <div class="animation-container animation-fade-left" data-animation-delay="600">
                         <p class="subline">Get ready everyone. We are currently working on a super awesome website.</p>
-                        
                     </div>
                     <!-- /ANIMATION CONTAINER -->
+  
                     
 
                     <!-- ANIMATION CONTAINER -->

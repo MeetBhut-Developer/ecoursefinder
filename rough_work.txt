@@ -2,3 +2,77 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'super@admin$meet%2232';
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'super@admin$meet%2232';
 
 Get ready everyone. We are currently working on a super awesome website.
+
+
+ssh ubuntu@13.234.122.44
+ecoursefinder@6292
+
+
+sudo nano /etc/ssh/sshd_config
+
+sudo service sshd restart
+
+
+
+sudo systemctl restart mysql
+nano /etc/mysql/mysql.conf.d/mysqld.cnf
+
+sudo systemctl restart mysql
+
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'49.206.60.41' IDENTIFIED BY 'super@admin$meet%2232';
+FLUSH PRIVILEGES;
+
+CREATE USER 'meet'@'%' IDENTIFIED BY 'super@admin$meet%2232';
+GRANT ALL PRIVILEGES ON *.* TO 'meet'@'%';
+FLUSH PRIVILEGES;
+
+mysql -h 13.234.122.44 -u meet -p
+super@admin$meet%2232
+
+fetch and store::::mysqldump -u root -p ecoursefinder > backup.sql
+
+restore and move:::::::mysql -u meet -p ecoursefinder < backup.sql
+
+MySQL Dump with Database Creation and Restore:
+
+    On the source server, create a backup of the database along with the database creation SQL statements:
+
+    bash
+
+mysqldump -u username -p --databases database_name > backup_with_create.sql
+
+Transfer the backup_with_create.sql file to the target server, for example, using scp:
+
+bash
+
+scp backup_with_create.sql username@target_server_ip:/path/to/backup_with_create.sql
+
+On the target server, log in to MySQL and execute the SQL script to recreate the database and restore the data:
+
+bash
+
+mysql -u username -p < backup_with_create.sql
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
