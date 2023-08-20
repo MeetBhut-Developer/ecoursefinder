@@ -16,6 +16,12 @@ def course_list(request):
 def under_construction(request):
     return render(request,'under_construction.html')
 
+def about(request):
+    return render(request,'about.html')
+
+def blog(request):
+    return render(request,'blog.html')
+
 def index(request):
     courses = Master_Courses.objects.all()
     # courses=Master_Courses.objects.filter(Q(category='Data Science') | Q(category='Development'))
@@ -23,3 +29,6 @@ def index(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'index.html', {'page_obj': page_obj})
+
+def countdown_view(request):
+    return render(request, 'countdown.html')
