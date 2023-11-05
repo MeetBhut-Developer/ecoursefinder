@@ -25,9 +25,7 @@ SECRET_KEY = 'django-insecure-kx(7ng)&@u2%l^c%-s^+5hm9$y!v*73crdnqm6)@k5y9i25%@j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','13.234.122.44','172.26.11.90','127.0.0.1','0.0.0.0']
-
-
+ALLOWED_HOSTS = ['*','www.ecoursefinder.in','ecoursefinder.in','15.206.161.96']
 
 # Application definition
 
