@@ -72,3 +72,7 @@ sudo systemctl restart ${APPNAME}
 sudo ln -s /etc/nginx/sites-available/${APPNAME} /etc/nginx/sites-enabled
 sudo systemctl restart nginx
 sudo systemctl status ${APPNAME}
+
+
+
+

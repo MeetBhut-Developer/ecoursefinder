@@ -7,10 +7,10 @@ $file_path = $_SERVER["DOCUMENT_ROOT"] . "/";
 $file_name = "subscriber-list.txt";
 
 
-if($_POST) {
+if($_GET) {
 	
-    $subscriber_email = $_POST['email'];
-	$subscriber_fhp_input = $_POST['phone'];
+    $subscriber_email = $_GET['email'];
+	$subscriber_fhp_input = $_GET['phone'];
 	$array = array();
     
     if( $subscriber_email == "" ) {
