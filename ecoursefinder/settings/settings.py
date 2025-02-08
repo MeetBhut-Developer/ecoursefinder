@@ -77,14 +77,22 @@ WSGI_APPLICATION = 'settings.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME':'ecoursefinder',
-        'USER': 'root',  
-        'PASSWORD': 'super@admin$meet%2232',  
-        'HOST': 'localhost',  
-        'PORT': '3306',  
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': '/home/master/Desktop/ecoursefinder/course',  # Full path to your SQLite file
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME':'ecoursefinder',
+#         'USER': 'root',  
+#         'PASSWORD': 'super@admin$meet%2232',  
+#         'HOST': 'localhost',  
+#         'PORT': '3306',  
+#     }
+# }
 
 
 

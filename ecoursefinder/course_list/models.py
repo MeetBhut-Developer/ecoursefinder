@@ -9,7 +9,7 @@ class Master_Courses(models.Model):
     course_description=models.CharField(max_length=100)
     rating_count=models.CharField(max_length=10)
     review_count=models.CharField(max_length=50)
-    price=models.CharField(max_length=5)
+    price=models.CharField(max_length=10)
     start_date=models.CharField(max_length=10)
     category=models.TextField()
 

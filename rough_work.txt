@@ -55,7 +55,7 @@ mysql -u username -p < backup_with_create.sql
 
 
 
-
+sudo kill -9 $(sudo lsof -t -i:9001)
 
 
 
